@@ -1,0 +1,69 @@
+{{ define "head" }}
+
+
+<meta name="title" property="og:title" content="{{ .Params.title }}" />
+{{ if (isset .Params "socialimage") }}
+<meta name="image" property="og:image" content={{ .Params.socialimage }} />
+{{ else }}
+<meta name="image" property="og:image" content={{ .Params.image }} />
+{{ end }}
+<meta name="url" property="og:url" content="{{ .Permalink }}" />
+{{ if .Params.SEODesc }}
+ <meta name="description" property="og:description" content="{{ .Params.SEODesc }}" />
+{{ else }}
+ <meta name="description" property="og:description" content="{{ .Params.description }}" />
+{{ end }}
+   
+{{ end }}
+
+{{ define "header" }}
+
+{{ end }}
+
+{{ define "main" }}
+<section id="op-hero" class="hero is-medium" style="background-image:url('{{ .Params.image }}');background-size: cover; background-position: center center;">
+  <div class="xhero-body">
+     <div class="container has-text-centered">
+   <h2 class="is-blog-head is-size-1">{{ .Params.title }}</h2>
+   
+     </div>
+   </div>
+ </section>
+
+
+<section id="content">
+  <div class="container pad-12">
+     {{ partial "breadcrumbs.html" . }}
+      {{ partial "readingtime.html" . }}
+      
+      <p class="has-text-weight-bold">{{ .Params.description | safeHTML }}</p>
+    {{ .Content }}
+    {{ partial "tags.html" .}}
+  </div>
+
+</section>
+{{ with .Params.sources }}
+{{ if gt (len .) 0 }}
+<section id="sources">
+  <div class="container pad-12 pad-b-2">
+      <h5>Sources:</h5>
+      {{ range . }}
+    <div class="is-size-7">
+      <sup>{{ .refno }}</sup> {{ .source }}  <a href="{{ .url}}" title="{{ .urltitle}}" target="_blank">{{ .url}}</a> 
+    </div>
+    {{end}}
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ partial "cta.html" . }}
+{{ end }}
+
+{{ define "more" }}
+
+{{ end }}
+
+{{ define "footer" }}
+ 
+{{ end }}

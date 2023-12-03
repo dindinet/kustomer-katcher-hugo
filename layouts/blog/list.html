@@ -1,0 +1,51 @@
+{{ define "head" }}
+    
+{{ end }}
+
+{{ define "header" }}
+
+{{ end }}
+
+{{ define "main" }}
+
+ <div class="container pad-tb-6">
+    <h3 class="is-size-1 has-text-black pad-b-1">Latest News & Insights</h3>
+ <div class="flex flex--col-4">
+        {{ range .Pages }}
+            <div class="cell">
+                
+                
+                <div class="card post pad-12">
+                  <a href="{{ .Permalink }}">  
+                    <div class="card-image">
+                      <figure class="image">
+                        <img src='{{ replace .Params.image "upload/" "upload/w_300,h_164,c_fill,q_auto,f_auto/" }}' alt="{{ .Params.description }}">
+                      </figure>
+                    </div>
+                      </a>
+                    {{ partial "tags.html" .}}
+                    <a class="list-post-title" href="{{ .Permalink }}">
+                    <h5 class="pad-t-0-5 pad-b-0-5">{{.Params.title}}</h5>
+                      <div class="content">
+                          {{ .Params.description }}
+                          {{ .Summary }}
+                        <br>
+                        
+                      </div>
+                    </div>
+                    </a>
+                  </div>            
+        {{ end }}
+        
+</div> 
+</div>
+      {{ partial "cta.html" . }}
+
+{{ end }}
+{{ define "more" }}
+  
+{{ end }}
+
+{{ define "footer" }}
+ 
+{{ end }}

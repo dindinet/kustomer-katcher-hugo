@@ -1,0 +1,6 @@
+{{ if gt .ReadingTime 1 }}
+    {{ .Scratch.Set "readingTime" "minutes" }}
+{{ else }}
+    {{ .Scratch.Set "readingTime" "minute" }}
+{{ end }}
+<p style="font-size: 1rem;"><span  class="readingdate">Published:</span> <time datetime="{{ .Date | dateFormat "2006-01-02 15:04" }}">{{ .Date | dateFormat "January 02, 2006" }}</time>&nbsp;&nbsp;&nbsp;&nbsp;<span class="readingdate">Reading time:</span> {{ .ReadingTime }} {{ .Scratch.Get "readingTime" }} </p>
