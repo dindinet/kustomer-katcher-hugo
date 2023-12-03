@@ -1,6 +1,6 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'TeleportHQ Hugo Site - kustomer katcher'
+title = 'teleportHQ Hugo Site - kustomer katcher'
 
 [module]
 [[module.imports]]
