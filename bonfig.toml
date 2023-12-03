@@ -1,0 +1,13 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+[module]
+[[module.imports]]
+    disable = false
+    ignoreConfig = false
+    ignoreImports = false
+    path = 'github.com/dindinet/KustomerKatcher-HTML'
+[[module.imports.mounts]]
+    source = '.'
+    target = 'static'
